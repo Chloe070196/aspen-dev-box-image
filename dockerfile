@@ -1,9 +1,10 @@
-#Base it on Debian 10
-FROM debian:buster-slim
+#Base it on Debian 11
+FROM debian:bullseye-slim
 
 #Install deps
 RUN apt -y update \
   && apt -y install \
+  libpcre2-8-0 \
   apt-utils \
   wget \
   apache2 \
@@ -21,7 +22,6 @@ RUN apt -y update \
   openjdk-11-jdk \
   unzip \
   rng-tools \
-  python-certbot-apache \
   mariadb-client \
   expect \
   sudo \
@@ -40,7 +40,7 @@ ENV LC_ALL en_US.UTF-8
 
 #Add php repo
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
-  && sh -c 'echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list'
+  && sh -c 'echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/php.list'
 
 
 
