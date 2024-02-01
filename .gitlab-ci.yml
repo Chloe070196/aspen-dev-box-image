@@ -1,7 +1,7 @@
 image: docker:stable
 
 variables:
-    IMAGE_NAME: aspen-dev-box:main
+    IMAGE_NAME: aspen-dev-box:24.02.00
 
 services:
     - docker:19.03.12-dind
