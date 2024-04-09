@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   aspen-dev-box:
-    image: registry.gitlab.com/aspen-discovery/aspen-dev-box-image/aspen-dev-box:main
+    image: registry.gitlab.com/aspen-discovery/aspen-dev-box-image/aspen-dev-box:test
     volumes:
       - "$ASPEN_CLONE:/usr/local/aspen-discovery"
       - "$ASPEN_DOCKER/site/:/usr/local/aspen-discovery/sites/test.localhostaspen"
