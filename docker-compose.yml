@@ -12,7 +12,7 @@ services:
       - "8083:80"
     container_name: containeraspen
     networks:
-      - koha_kohanet
+      - kohadev_kohanet
     platform: linux/x86_64
     tty: true
     depends_on:
@@ -43,7 +43,7 @@ services:
           "--innodb_initialized"
         ]
     networks:
-      - koha_kohanet
+      - kohadev_kohanet
     platform: linux/x86_64
     
   solr:
@@ -56,11 +56,11 @@ services:
     deploy:
       endpoint_mode: dnsrr
     networks:
-      - koha_kohanet
+      - kohadev_kohanet
     depends_on:
       - aspen-dev-box
 
 networks:
-  koha_kohanet:
-    name: koha_kohanet
+  kohadev_kohanet:
+    name: kohadev_kohanet
     external: true
