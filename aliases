@@ -1,3 +1,4 @@
 alias aspen_logs='(cd /var/log/aspen-discovery/test.localhostaspen/; tail -f ./* ./logs/*)'
 alias aspen_dir='cd /usr/local/aspen-discovery/'
 alias aspen_code='cd /usr/local/aspen-discovery/code/'
+alias aspen_koha_import='cd /usr/local/aspen-discovery/code/koha_export; java -jar koha_export.jar test.localhostaspen; cd -'
