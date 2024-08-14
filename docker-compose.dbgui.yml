@@ -10,5 +10,5 @@ services:
       - PMA_USER=aspensuper
       - PMA_PASSWORD=aspensuper
     networks:
-      - koha_kohanet
+      - kohadev_kohanet
 
