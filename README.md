@@ -45,17 +45,12 @@ git clone https://github.com/mdnoble73/aspen-discovery.git aspen-discovery
 
 * Set some **mandatory** environment variables in your .bashrc:
 
-```
-export PROJECTS_DIR=~/git
-export ASPEN_CLONE=$PROJECTS_DIR/aspen-discovery
-export ASPEN_DOCKER=$PROJECTS_DIR/aspen-dev-box
-
-
-**LINUX ONLY:** 
-export PATH=$PATH:$ASPEN_DOCKER/bin/linux
-
-**MAC ONLY:**
-export PATH=$PATH:$ASPEN_DOCKER/bin/darwin
+```shell
+echo "export PROJECTS_DIR=$PROJECTS_DIR" >> ~/.bashrc
+echo 'export ASPEN_CLONE=$PROJECTS_DIR/aspen-discovery' >> ~/.bashrc
+echo 'export ASPEN_DOCKER=$PROJECTS_DIR/aspen-dev-box'  >> ~/.bashrc
+[ "$(uname)" == "Darwin" ] && echo 'export PATH=$PATH:$ASPEN_DOCKER/bin/darwin' >> ~/.bashrc
+[ "$(uname)" == "Linux" ] && echo 'export PATH=$PATH:$ASPEN_DOCKER/bin/linux' >> ~/.bashrc
 ```
 
 **Note:** you will need to log out and log back in (or start a new terminal window) for this to take effect.
