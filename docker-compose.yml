@@ -29,7 +29,8 @@ services:
     image: "mariadb"
     volumes:
       - $ASPEN_CLONE/install/aspen.sql:/docker-entrypoint-initdb.d/Aspen-db-startup.sql
-      - $ASPEN_DOCKER/database_start_scripts/ktd/account_profile.sql:/docker-entrypoint-initdb.d/zzz-init_account_profile.sql
+      # - $ASPEN_DOCKER/database_start_scripts/ktd/account_profile.sql:/docker-entrypoint-initdb.d/zzz-init_account_profile.sql
+      - $ASPEN_DOCKER/database_start_scripts/evergreen/account_profile.sql:/docker-entrypoint-initdb.d/zzz-init_account_profile.sql
 
     healthcheck:
       interval: 60s
@@ -60,7 +61,22 @@ services:
     depends_on:
       - aspen-dev-box
 
+  evergreen-ils:
+      stdin_open: true
+      tty: true
+      ports:
+          - 80:80
+          - 443:443
+          - 210:210
+          - 6001:6001
+          - 32:22
+          - 5433:5432
+      hostname: app.evergreen.com
+      image: mobiusoffice/evergreen-ils
+      networks:
+        - kohadev_kohanet
+
 networks:
   kohadev_kohanet:
     name: kohadev_kohanet
-    external: true
+    # external: true
